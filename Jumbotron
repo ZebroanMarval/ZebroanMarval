@@ -1,0 +1,166 @@
+<div class="container">
+    <h1>Color Generater</h1>
+    <h2>Attempt:<span id="num">0</span></h2>
+    <div class="row">
+        <table>
+            <tbody>
+                <tr>
+                    <td ></td>
+                </tr>
+            </tbody>
+        </table>
+      
+    </div>
+    <button id="btn">Submit</button>
+   
+    <div class="row" id="cw">
+    
+        <div class="col-lg-6">
+        <ul id="com"><b>Completed</b></ul>
+    </div>
+    <div class="col-lg-6">
+        <ul id="untik"><b>Wrong</b></ul>
+        </div>  
+    
+
+    </div>
+    <h1>Progress Bar:<span id="num2">0</span>%</h1><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container{
+    margin-top: 10px;;
+    background-color: grey;
+    padding: 20px;
+}
+h1{
+    font-family:  monospace;
+}
+
+h2{
+    text-align: right;
+    padding-right: 30px;
+}
+#btn{
+    float:right;
+    color: white;
+    background-color: turquoise;
+}
+label{
+   
+    padding-left:10px ;
+    padding-bottom: 30px; 
+}
+td{
+    font-weight: bold;
+    font-style: italic;
+    font-family:  monospace;
+}
+b{
+    text-align: center;
+    font-size: xx-large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+var button=$("#btn");
+var rgb = [];
+var arr = [];
+var color;
+var count=0;
+var pr=0;
+for(var i =0;i<10;i++){
+  for(var j=0;j<3;j++){
+    
+   var rd = Math.floor(Math.random() * 256);
+   var gn = Math.floor(Math.random() * 256);
+   var be = Math.floor(Math.random() * 256);
+   rgb[j] = "RGB("+rd+", "+gn+", "+be+")"
+  
+  } 
+var randomColor={
+
+   c1 : rgb[0],
+   c2 : rgb[1],
+   c3 : rgb[2],
+   pick : rgb[Math.floor(Math.random() * 3)],
+   
+   deffrnd : false,
+}
+
+ arr.push(randomColor);
+
+}
+
+$("tbody").html(" ");
+
+arr.forEach(function(e,i){
+  
+    $("tbody").append('<tr id='+i+'><td><h3>'+e.pick+'</h3></td><td><input type="radio" name="'+i+'"onclick= "check('+`'${e.pick}','${e.c1}',${i}`+')" ><label style="background:'+e.c1+'"></label></td><td><input type="radio" name="'+i+'" onclick= "check('+`'${e.pick}','${e.c2}',${i}`+')" ><label  style="background:'+e.c2+'"></label></td><td><input type="radio" name="'+i+'" onclick= "check('+`'${e.pick}','${e.c1}',${i}`+')" ><label  style="background:'+e.c3+'"></label></td></tr>');
+   
+});
+function check(pick, clicked, index){
+    if(pick == clicked){
+        arr[index].deffrnd=true;
+    }
+}
+$("#btn").on("click",function(){
+    count ++;
+    $("#num").text(count);
+    if(count ==2){
+        $("tbody").css("display","none");
+        $("#btn").css("display","none");
+    arr.forEach(function(e,i){
+        
+        if(e.deffrnd == true){
+            pr++;
+            $("#com").append('<li style="color:green">'+e.pick+'</li>');
+        }
+        else{
+            $("#untik").append('<li style="color:red">'+e.pick+'</li>');
+        }
+
+    });
+    var h=((pr/10)*100);
+    $("#num2").text(h); 
+    }else{
+    $("tbody").html(" ");
+    arr.forEach(function(e,i){
+     if(e.deffrnd == false){
+      $("tbody").append('<tr id='+i+'><td><h3>'+e.pick+'</h3></td><td><input type="radio" name="'+i+'"onclick= "check('+`'${e.pick}','${e.c1}',${i}`+')" ><label style="background:'+e.c1+'"></label></td><td><input type="radio" name="'+i+'" onclick= "check('+`'${e.pick}','${e.c2}',${i}`+')" ><label  style="background:'+e.c2+'"></label></td><td><input type="radio" name="'+i+'" onclick= "check('+`'${e.pick}','${e.c1}',${i}`+')" ><label  style="background:'+e.c3+'"></label></td></tr>');
+    
+  }
+    });
+ 
+}
+
+});
