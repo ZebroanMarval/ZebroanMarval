@@ -47,6 +47,14 @@
 
 
 
+
+
+
+
+
+
+
+
 .container{
     margin-top: 10px;;
     background-color: grey;
@@ -164,3 +172,76 @@ $("#btn").on("click",function(){
 }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var colors= [];
+
+for (var i=0; i<10; i++) {
+
+var obj= []; for(var j=0; j<3;j++){
+
+var r= Math.floor(Math.random()* 256); var g= Math.floor(Math.random()* 256); var b= Math.floor(Math.random()* 256);
+
+obj[j] = "rgb("+r+","+g+", " + b +")";
+
+}
+
+colors[i] {} debugger
+
+colors[i].cl obj[0];
+
+colors[i].c2= obj[1]; colors[i].c3 obj[2];
+
+} obj
+
+(3) ['rgb(160, 170, 39), rgb(96, 169, 53),
+
+obj[0]
+
+rgb(160, 170, 39) obj[Math.floor(Math.random()* 3)]
+
+'rgb(96, 169, 53)
+
+'rgb(251, 195, 135) var colors = [];
+
+for (var i=0;i<10; i++) {
+
+var obj = [];
+
+for(var j=0; j<3;j++){
+
+var r= Math.floor(Math.random() 256);
+
+var g= Math.floor(Math.random()
+
+256);
+
+var b Math.floor(Math.random()* 256); obj[j] = "rgb("+r+","+g+", " + b +")";
+
+rgb(112, 94, 121)]
+
+}
+
+colors[i] = {} colors[i].pic_color- obj [Math.floor(Math.random()* 3)]
+
+colors[i].c1= obj[0]; colors[i].c2 obj[1];
+
+colors[1].c3 obj[2];
+
+rgb(98, 218, 103)'
+
+Type here to search
+
+i
